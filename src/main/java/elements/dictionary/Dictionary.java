@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Dictionary {
 
-    private ArrayList<DictionaryElement> dictionary;
+    private final ArrayList<DictionaryElement> dictionary;
 
     public Dictionary(TemplateParser templateParser) {
 
@@ -27,7 +27,6 @@ public class Dictionary {
 
         for (Sentence sentence : sentences) {
             for (String word : sentence.getWords()) {
-
                 int index = isInDictionary(word);
 
                 if (index == -1) {

@@ -11,16 +11,15 @@ import java.util.ArrayList;
 /**
  * Created by victor on 08.04.16.
  */
-public class BayesClassifier implements ClassifierInterface {
+public class BayesClassifier implements Classifier {
 
 
     private ClassOfEmail classOfEmail;
-    private TemplateParser templateParser;
-    private Dictionary dictionary;
+    private final Dictionary dictionary;
 
     public BayesClassifier(String fileName) {
 
-        templateParser = new TemplateParser(fileName);
+        TemplateParser templateParser = new TemplateParser(fileName);
 
         dictionary = new Dictionary(templateParser);
 

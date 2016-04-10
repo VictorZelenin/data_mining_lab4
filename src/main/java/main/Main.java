@@ -1,7 +1,7 @@
 package main;
 
 import classifier.BayesClassifier;
-import classifier.ClassifierInterface;
+import classifier.Classifier;
 import util.Util;
 
 /**
@@ -12,9 +12,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ClassifierInterface classifier = new BayesClassifier("template.txt");
+        // create classifier
+        Classifier classifier = new BayesClassifier("template.txt");
 
-        Util.createResultFile(Util.parseFile("test.txt"), classifier);
+        /**
+         * @param "test.txt" - input file
+         * @param "out.txt" - output.file
+         * @param classifier - novice bayes classifier
+         *
+         * */
+        Util.createResultFile("test.txt", "out.txt", classifier);
 
     }
 

@@ -5,7 +5,7 @@ package elements.dictionary;
  */
 public class DictionaryElement {
 
-    private String word;
+    private final String word;
 
     private double notSpamNumber;
 
@@ -30,9 +30,6 @@ public class DictionaryElement {
         return spamNumber;
     }
 
-    public void setWord(String word) {
-        this.word = word;
-    }
 
     public void setNotSpamNumber(double notSpamNumber) {
         this.notSpamNumber = notSpamNumber;

@@ -1,6 +1,6 @@
 package util;
 
-import classifier.ClassifierInterface;
+import classifier.Classifier;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Util {
 
 
-    public static ArrayList<String> parseFile(String fileName) {
+    private static ArrayList<String> parseFile(String fileName) {
 
         ArrayList<String> sentences = new ArrayList<>();
 
@@ -27,6 +27,7 @@ public class Util {
             e.printStackTrace();
         }
 
+        assert scanner != null;
         while (scanner.hasNext()) {
 
             sentences.add(scanner.nextLine());
@@ -37,9 +38,12 @@ public class Util {
         return sentences;
     }
 
-    public static void createResultFile(ArrayList<String> sentences, ClassifierInterface classifier) {
+    public static void createResultFile(String inputFileName,
+                                        String outputFileName, Classifier classifier) {
 
-        File resultFile = new File("output.txt");
+        ArrayList<String> sentences = parseFile(inputFileName);
+
+        File resultFile = new File(outputFileName);
 
         if (!resultFile.exists()) {
             try {
@@ -67,6 +71,8 @@ public class Util {
 
         }
 
+        assert writer != null;
+        writer.close();
 
     }
 }

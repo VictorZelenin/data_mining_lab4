@@ -5,7 +5,7 @@ package elements;
  */
 public class Sentence {
 
-    private String sentence;
+    private final String sentence;
 
     private ClassOfEmail classOfEmail;
 
